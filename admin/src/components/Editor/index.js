@@ -44,7 +44,6 @@ const TinyEditor = ({ onChange, name, value }) => {
                 }}
                 outputFormat={pluginConfig?.outputFormat || "html"}
                 init={{
-                    ...pluginConfig?.editorConfig,
                     images_upload_handler: async (blobInfo) => {
                       const formData = new FormData();
                       formData.append("files", blobInfo.blob());
@@ -63,6 +62,7 @@ const TinyEditor = ({ onChange, name, value }) => {
                           console.log("error:", err);
                         });
                     },
+                    ...pluginConfig?.editorConfig,
                   }}
             />
             : <></>
